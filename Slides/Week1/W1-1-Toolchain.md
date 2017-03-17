@@ -80,7 +80,7 @@ Exclude:
 
 Download & install [Visual Studio Code](https://code.visualstudio.com/)
         
-[![VSCode logo](img/vscode.png)]
+![VSCode logo](img/vscode.png)
 
 ---
 
