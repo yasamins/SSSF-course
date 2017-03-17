@@ -56,11 +56,11 @@ Add modal to display the mid-size image of selected thumbnail
 ![Example layout](img/ui2.png)
 
 ### 3rd step (Wednesday)
-Create new file data.json and copy/paste the spyArray there. Delete spyArray from the code and use AJAX to load the array from data.json.
+ * Sort/display by category
+ * Display date
 
 ### 4h step (Thursday)
 Finish the app by adding additional functionaility:
+ * Create new file data.json and copy/paste the spyArray there. Delete spyArray from the code and use AJAX to load the array from data.json.
  * Google Map (or similar) to display the location of selected image
- * Sort/display by category
- * Display date
  * etc...
