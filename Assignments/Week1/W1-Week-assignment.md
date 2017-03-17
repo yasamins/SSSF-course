@@ -47,11 +47,20 @@ const spyArray = [
 ### 1st step (Monday)
 Create the HTML template for displaying a list of thumbnails with some details
 
+>Example layout:
+![Example layout](img/ui1.png)
+
 ### 2nd step (Tuesday)
 Add modal to display the mid-size image of selected thumbnail
+>Example layout:
+![Example layout](img/ui2.png)
 
 ### 3rd step (Wednesday)
 Create new file data.json and copy/paste the spyArray there. Delete spyArray from the code and use AJAX to load the array from data.json.
 
 ### 4h step (Thursday)
-Finish the app by adding Google Map (or similar) to display the location of selected image.
+Finish the app by adding additional functionaility:
+ * Google Map (or similar) to display the location of selected image
+ * Sort/display by category
+ * Display date
+ * etc...
