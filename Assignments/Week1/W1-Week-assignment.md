@@ -2,7 +2,7 @@
 
 You are given a predefined set of data (spyArray). Your task is to create an app which displays the data on a web page using ES6.
 
-```JavaScript
+```javascript
 const spyArray = [
   {
     "id": 12,
