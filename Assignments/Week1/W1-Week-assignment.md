@@ -45,7 +45,7 @@ const spyArray = [
 
 
 ### 1st step (Monday)
-Create the HTML template for displaying a list of thumbnails with some details
+Create the HTML template for displaying a list of thumbnails with some details. Use the data from the array above.
 
 >Example layout:
 ![Example layout](img/ui1.png)
