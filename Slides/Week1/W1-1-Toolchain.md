@@ -26,7 +26,7 @@ Ultimately, it's your choice. VSCode or WebStorm are recommended.
 #### WebStorm
 
 - [WebStorm](https://www.jetbrains.com/webstorm/)
-  - free student license (only @metropolia.fi email address needed)
+  - [free student license (only @metropolia.fi email address needed)](https://www.jetbrains.com/student/)
   - full featured IDE
   - based on IntelliJ IDEA, just like Android Studio
   
