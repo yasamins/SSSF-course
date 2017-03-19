@@ -34,6 +34,7 @@ Ultimately, it's your choice. VSCode or WebStorm are recommended.
 
 - [Atom](https://atom.io/)
 - [Brackets](http://brackets.io/) 
+- [Vim](https://github.com/nodejs/node/wiki/Vim-Plugins)
 
 ---
 
@@ -44,7 +45,7 @@ Check [Git stuff](https://github.com/mattpe/git-intro/blob/master/git-basics.md)
 What files to include in repo?
 
 - all source code
-- README.md and other documentation
+- [README.md](https://help.github.com/articles/about-readmes/), license and other documentation
 - eg. npm grunt or bower settings files
 - .gitignore file: list of local stuff not to be included in the version control ->
 
