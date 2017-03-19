@@ -128,6 +128,7 @@ console.log(prefixer.prefixArrayES6(["Alice" , "Bob"]));
 * `static` class members 
 
 ```javascript
+"use strict";
 class PrefixerClassES6 {
   constructor(prefix) {
     this.prefix = prefix;
@@ -135,10 +136,38 @@ class PrefixerClassES6 {
   prefixArray(arr) {
     return arr.map(x => this.prefix + x); 
   }
-  get something() {return this.prefix;}
+  get something() {return this.prefix + "Test";}
 }
 
 const prefixerES6 = new PrefixerClassES6("Hei ");
 console.log(prefixerES6.prefixArray(["Mike", "Carla"]));
 console.log(prefixerES6.something);
 ```
+
+---
+
+#Default, rest and spread parameters
+
+* default values for function parameters
+```javascript
+"use strict";
+const defParam = (x, y = 42, z = 2) => x + y + z;
+console.log(defParam(6)); //50
+console.log(defParam(3, 1)); //6
+```
+
+* Aggregation of remaining arguments
+```javascript
+const restParam = (x, y, ...a) => {return (x + y) * a.length;};
+console.log(restParam(1, 2, "foo", "bar", "baz", 42)); //12
+```
+
+* Spreading of elements of an iterable collection (like array or string) into both literal elements and individual function parameters
+```javascript
+const params = ["foo", "bar", 42];
+const spreadConst = [1, 2, ...params];
+console.log(restParam(...spreadConst)); //9
+const str = "foobar";
+console.log([...str]); //[ 'f', 'o', 'o', 'b', 'a', 'r' ]
+```
+
