@@ -49,6 +49,7 @@ console.log(MY_CONST); //7
   * the variable identifier cannot be reassigned, will raise `SyntaxError` exception
 
 ```javascript
+"use strict";
 for (let i = 0; i < 10; i++) {
     console.log(i); //0,1,2,...
 }
@@ -72,6 +73,7 @@ let j = 12; //SyntaxError
 * Better avoid to use as method functions 
 
 ```javascript
+"use strict";
 const add = (x, y) => {return x + y;};
 console.log(add(1, 2));
 
@@ -87,4 +89,56 @@ console.log(one_param(3));
 const no_param = () => {return 42;};
 console.log(no_param());
 ```
+---
 
+#Arrow function
+
+* lexical `this`, e.g. in object 
+
+```javascript
+"use strict";
+function Prefixer(prefix) {
+  this.prefix = prefix;
+}
+
+//ES5 needs some hack around
+Prefixer.prototype.prefixArrayES5 = function(arr) {
+  let that = this; // get the right this 
+  return arr.map(function (x) {
+    return that.prefix + x;
+  }); // or }.bind(this) instead of that = this
+}
+
+Prefixer.prototype.prefixArrayES6 = function(arr) {
+  return arr.map( x => {return this.prefix + x;});
+}
+
+const prefixer = new Prefixer("Hi ");
+console.log(prefixer.prefixArrayES5(["Joe", "Mary"]));
+console.log(prefixer.prefixArrayES6(["Alice" , "Bob"]));
+```
+
+---
+
+#ES6 class/object
+
+* With `class` declaration
+* `constructor` and getter `get` setter `set`
+* Inheritance `extends` and access to parent class with `super`
+* `static` class members 
+
+```javascript
+class PrefixerClassES6 {
+  constructor(prefix) {
+    this.prefix = prefix;
+  }
+  prefixArray(arr) {
+    return arr.map(x => this.prefix + x); 
+  }
+  get something() {return this.prefix;}
+}
+
+const prefixerES6 = new PrefixerClassES6("Hei ");
+console.log(prefixerES6.prefixArray(["Mike", "Carla"]));
+console.log(prefixerES6.something);
+```
