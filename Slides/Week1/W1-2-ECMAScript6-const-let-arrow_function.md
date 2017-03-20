@@ -7,26 +7,12 @@ class: center, middle
 
 ---
 
-# ECMAScript 6 
+# Contents
 
 1. `const` 
 1. `let`
 2. arrow function
 1. New features in ECMAScript 2015 (6th edition)
-
----
-
-# New features in ECMAScript 2015 (6th edition)
-
-* Scoped constant `const` and variable `let`
-* Function
-  * Default Parameter Values
-  * Spread and Rest parameters
-  * Arrow functions
-      * Lexical set `this`
-  * Generator `function*` (iterator)
-* Class/Object
-  * 
 
 ---
 
@@ -181,3 +167,72 @@ const str = "foobar";
 console.log([...str]); //[ 'f', 'o', 'o', 'b', 'a', 'r' ]
 ```
 
+---
+
+# New features in ECMAScript 2015 (6th edition)
+
+* Scoped constant `const` and variable `let`
+* Function
+  * Default Parameter Values
+  * Spread and Rest parameters
+  * Arrow functions
+      * Lexical set `this`
+* Class/Object
+  * Property shorthand 
+  * Method notation in object property definitions
+  * Class definition
+  * Constructor, getter/setter
+  * Static 
+
+---
+
+# New features (will continue on Wed and Thu (or today?))
+
+* New Built-In Methods
+   * Object Property Assignment
+   * Array Element Finding
+   * String Repeating
+   * String Searching
+   * Number Type Checking
+   * Number Safety Checking
+   * Number Comparison
+   * Number Truncation
+   * Number Sign Determination
+* Internationalization & Localization
+   * Collation
+   * Number Formatting
+   * Currency Formatting
+   * Date/Time Formatting
+
+---
+
+# New features (will continue on Wed and Thu (or today?))
+
+* Generator `function*` (iterator)
+* Class/Object Inheritance (multiple)
+* Promise
+* Template Literals (backtick ` string and raw string access)
+* Safe binary and octal & Unicode within strings and regular expressions
+* for-of iterator
+* Map/Set & WeakMap/WeakSet 
+* Typed Arrays 
+* Regular Expression Sticky Matching
+* Destructuring Assignment 
+* Modules Export/Import
+* Meta-Programming:   Proxying and Reflection
+* Symbol Type
+* Typed Arrays
+
+---
+
+# Sources
+
+* [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript) V.S. [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+* [Syntax (wikipedia)](https://en.wikipedia.org/wiki/JavaScript_syntax)
+* [MDN JavaScript reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference) e.g.
+  * [const](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/const)
+  * [let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) V.S. [var](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var)
+  * [arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+  * etc.
+* [ES6 features](http://es6-features.org/)
+* [Power of ES6](http://charlesbking.com/power_of_es6/)
