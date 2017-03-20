@@ -92,7 +92,7 @@ Press _ctrl-shift-x_ or click extensions icon on the left panel.
 Search and install:
 
 - Auto Import
-- TSLint
+- ESLint
 
 Other handy extensions:
 
