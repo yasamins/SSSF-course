@@ -1,8 +1,18 @@
+class: center, middle
+
+## ECMAScript 2015 (6th edition)
+##### const, let, arrow function and some new features of ES6
+#### TX00CR77-3001 / Spring 2017
+#### Patrick Ausderau
+
+---
+
 # ECMAScript 6 
 
-1. New features in ECMAScript 2015 (6th edition)
-1. `const` and `let`
+1. `const` 
+1. `let`
 2. arrow function
+1. New features in ECMAScript 2015 (6th edition)
 
 ---
 
