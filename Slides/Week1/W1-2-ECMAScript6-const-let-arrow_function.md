@@ -235,4 +235,5 @@ console.log([...str]); //[ 'f', 'o', 'o', 'b', 'a', 'r' ]
   * [arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
   * etc.
 * [ES6 features](http://es6-features.org/)
+* [exploring js es6 arrow function this](http://exploringjs.com/es6/ch_arrow-functions.html)
 * [Power of ES6](http://charlesbking.com/power_of_es6/)
