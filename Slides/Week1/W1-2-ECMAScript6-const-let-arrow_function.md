@@ -16,7 +16,7 @@ class: center, middle
 
 ---
 
-#Const
+# Const
 
 * The `const` declaration creates a read-only reference to a value that is block-scoped
   *  the variable identifier cannot be reassigned
@@ -38,7 +38,7 @@ console.log(MY_CONST); //7
 
 ---
 
-#Let
+# Let
 
 * The `let` declaration declares a block-scoped local variable
   * optionally initialized at creation
@@ -61,7 +61,7 @@ let j = 12; //SyntaxError
 ```
 ---
 
-#Arrow function
+# Arrow function
 
 * The arrow function have a shorter syntax than `function`
 * Does not bind  its own `this`, `arguments`, `super`, or `new.target`
@@ -87,7 +87,7 @@ console.log(no_param());
 ```
 ---
 
-#Arrow function
+# Arrow function
 
 * lexical `this`, e.g. in object 
 
@@ -116,7 +116,7 @@ console.log(prefixer.prefixArrayES6(["Alice" , "Bob"]));
 
 ---
 
-#ES6 class/object
+# ES6 class/object
 
 * With `class` declaration
 * `constructor` and getter `get` setter `set`
@@ -142,7 +142,7 @@ console.log(prefixerES6.something);
 
 ---
 
-#Default, rest and spread parameters
+# Default, rest and spread parameters
 
 * default values for function parameters
 ```javascript
