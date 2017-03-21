@@ -2,6 +2,15 @@
 
 You are given a predefined set of data (spyArray). Your task is to create an app which displays the data on a web page using ES6.
 
+App features:
+  * Display tumbnails
+  * Display image title and details
+  * Display larger version of the image in modal
+  * Display (Google) map showing the location of the image
+  * Display human readable date of the image
+  * Sort/display by category
+  * Whatever other features you want 
+
 ```javascript
 const spyArray = [
   {
