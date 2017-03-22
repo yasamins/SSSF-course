@@ -36,7 +36,7 @@ giving github url to remarkise throw same-origin policy exception :(
 # Contents
 
 1. `Promise` 
-1. `fetch`
+1. `fetch()`
 
 ---
 
@@ -125,7 +125,7 @@ Promise.race([p1, p2]).then((value) => {
 
 ---
 
-#Promise all()
+# Promise all()
 
 * The Promise `all` method returns a single Promise that resolves when all of the promises in the iterable argument have resolved or rejects. Returns
   * if all have resolved, an array of all the resolved values in the same order as defined in the iterable
@@ -145,6 +145,54 @@ Promise.all([p1, p2]).then((values) => {
   console.log(reason); // or reject?
 });
 ```
+
+---
+
+# Fetch
+
+* The Fetch API provides an interface for fetching resources locally or over the network (similar to `XMLHttpRequest`) and provides 
+  * `GlobalFetch.fetch()` method used to fetch a resource
+  * `Headers` which represents response/request headers, allowing you to query them and take different actions depending on the results
+  * `Request` which represents a resource request
+  * `Response` which represents the response to a request
+  * `Body` that provides methods relating to the body of the response/request, allowing you to declare what its content type is and how it should be handled
+
+---
+
+# fetch()
+
+* The fetch() method starts the process of fetching a resource from the network. This returns a promise that resolves to the Response object representing the response to your request
+  * A input attribute, either a string with the direct URL or a `Request` object
+  * Optionally, an options object which contains settings for the request, like
+     * `method: POST`
+     * `headers:` that will contains `Headers` object (e.g. to set `Content-Type` to `text/plain`)
+     * `mode:` The mode you want to use for the request, e.g., `cors`, `no-cors`, or `same-origin`
+     * [etc.](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters) 
+
+---
+
+# fetch()
+
+Example:
+
+```javascript 
+const myImage = document.querySelector('img');
+const myRequest = new Request('http://placekitten.com/768/720');
+
+fetch(myRequest).then((response) => { 
+  if(response.ok) {
+    return response.blob();
+  }
+  throw new Error('Network response was not ok.');
+}).then((myBlob) => {
+  const objectURL = URL.createObjectURL(myBlob);
+  myImage.src = objectURL;
+}).catch(function(error) {
+  console.log('Problem :( ' + error.message);
+});
+```
+
+
 
 
     </textarea>
