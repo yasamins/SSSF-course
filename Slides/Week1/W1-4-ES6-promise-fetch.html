@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Promise and fetch</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle
+
+## ECMAScript 2015 (6th edition)
+##### Promise & fetch
+#### TX00CR77-3001 / Spring 2017
+#### Patrick Ausderau
+
+<!---
+to get the slide nicely, clone/pull the repo and drag and drop this .md file
+to https://remarkjs.com/remarkise 
+giving github url to remarkise throw same-origin policy exception :(
+-->
+
+---
+
+# Contents
+
+1. `Promise` 
+1. `fetch`
+
+---
+
+# Promise
+
+* A `Promise` object is use for asynchronous task
+* A `Promise` represents a value which may be available now, or in the future, or never
+* When creating a Promise, a function is given as parameter that will be called imediately
+  * that function takes `resolve` and `reject` parameters
+  * once that function completes, either calls the `resolve` function to resolve the promise or `rejects` it if an error occurred
+  * If an exception is thrown in the function, the promise is rejected (the return value of the function is ignored)
+
+```javascript
+const myPromise = new Promise((resolve, reject) => {
+  /* ...usually some asynchronous task... */
+  //on succes...
+  resolve('Yes :)');
+  //on failure...
+  reject('NO NO NO!');
+}
+```
+
+---
+
+# Promise then() and catch()
+
+* A pending promise can either be fulfilled with a value, or rejected with a reason (error)
+  * When any of these happen, the associated handlers queued up by a promise's `then` method are called
+  * the Promise `then()` and `catch()` methods return promises so they can be chained
+
+![chaining promise](img/promises.png)
+<span style="font-size: small;">Mozilla Contributors CC-BY-SA 2.5</span>
+
+---
+
+# Promise then() 
+
+* The Promise `then` method take one or two parameters
+  * A function called when the Promise is fulfilled. This function has one argument, the fulfillment value
+  * Optionally a function called when the Promise is rejected. This function has one argument, the rejection reason
+
+```javascript
+myPromise.then((successMsg) => {
+  console.log('Really: ' + successMsg);
+}, (errorMsg) => {
+  console.log('So sad :( ' + errorMsg);
+});
+```
+---
+
+# Promise catch()
+
+* The `catch` method returns a Promise and deals with rejected cases only, so takes only one parameter function
+
+```javascript
+myPromise.then((successMsg) => {
+  console.log('Really: ' + successMsg);
+  //but something bad...
+  throw 'oh, no :(';
+}).catch((e) => {
+  console.log(e); 
+}).then(() => {
+  console.log('after a catch the chain is restored');
+});
+```
+
+
+    </textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
+
+
