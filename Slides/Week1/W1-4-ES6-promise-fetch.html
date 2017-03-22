@@ -85,6 +85,7 @@ myPromise.then((successMsg) => {
   console.log('So sad :( ' + errorMsg);
 });
 ```
+
 ---
 
 # Promise catch()
@@ -100,6 +101,48 @@ myPromise.then((successMsg) => {
   console.log(e); 
 }).then(() => {
   console.log('after a catch the chain is restored');
+});
+```
+
+---
+
+# Promise race()
+
+* The Promise `race` takes an array (or other iterable) of promises and return a promise as soon as one of the promises in the iterable resolves or rejects 
+
+```javascript
+const p1 = new Promise((resolve, reject) => { 
+  setTimeout(resolve, 500, 'one'); 
+});
+const p2 = new Promise((resolve, reject) => { 
+  setTimeout(resolve, 100, 'two'); 
+});
+
+Promise.race([p1, p2]).then((value) => {
+  console.log(value); // with a huge probability "two"
+});
+```
+
+---
+
+#Promise all()
+
+* The Promise `all` method returns a single Promise that resolves when all of the promises in the iterable argument have resolved or rejects. Returns
+  * if all have resolved, an array of all the resolved values in the same order as defined in the iterable
+  * if some have rejected, the reason of the first promise that rejects
+
+```javascript
+const p1 = new Promise((resolve, reject) => { 
+  setTimeout(resolve, 500, 'one'); 
+});
+const p2 = new Promise((resolve, reject) => { 
+  setTimeout(resolve, 100, 'two'); 
+});
+
+Promise.all([p1, p2]).then((values) => {
+  console.log(values); // ["one", "two"]
+}, reason => {
+  console.log(reason); // or reject?
 });
 ```
 
