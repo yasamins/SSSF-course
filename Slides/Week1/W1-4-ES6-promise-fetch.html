@@ -152,10 +152,10 @@ Promise.all([p1, p2]).then((values) => {
 
 * The Fetch API provides an interface for fetching resources locally or over the network (similar to `XMLHttpRequest`) and provides 
   * `GlobalFetch.fetch()` method used to fetch a resource
-  * `Headers` which represents response/request headers, allowing you to query them and take different actions depending on the results
+  * `Headers` which represents response/request headers, allowing to query them and take different actions depending on the results
   * `Request` which represents a resource request
   * `Response` which represents the response to a request
-  * `Body` that provides methods relating to the body of the response/request, allowing you to declare what its content type is and how it should be handled
+  * `Body` that provides methods relating to the body of the response/request, allowing to declare what its content type is and how it should be handled
 
 ---
 
@@ -192,8 +192,31 @@ fetch(myRequest).then((response) => {
 });
 ```
 
+---
 
+# Header
 
+* The Headers interface of the Fetch API allows to perform various actions on HTTP request and response headers
+
+```javascript
+const myHeaders = new Headers({
+  'Content-Type': 'text/plain',
+  'Content-Length': content.length.toString(),
+});
+
+const myInit = { method: 'GET',
+               headers: myHeaders,
+               cache: 'default' };
+ 
+fetch('https://www.test.org', myInit).then((response) => { /* ... */ });
+```
+
+---
+
+# Sources
+
+  * [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+  * [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 
     </textarea>
     <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
