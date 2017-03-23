@@ -38,7 +38,7 @@ class: center, middle
 
 * A `Promise` object is use for asynchronous task
 * A `Promise` represents a value which may be available now, or in the future, or never
-* When creating a Promise, a function is given as parameter that will be called imediately
+* When creating a Promise, a function is given as parameter that will be called immediately
   * that function takes `resolve` and `reject` parameters
   * once that function completes, either calls the `resolve` function to resolve the promise or `rejects` it if an error occurred
   * If an exception is thrown in the function, the promise is rejected (the return value of the function is ignored)
@@ -203,6 +203,31 @@ const myInit = { method: 'GET',
                cache: 'default' };
  
 fetch('https://www.test.org', myInit).then((response) => { /* ... */ });
+```
+---
+
+# Request, Response and Body
+
+* The `Request` interface of the Fetch API represents a resource request
+  * it contains properties such as `method`, `url`, `headers`, [etc.](https://developer.mozilla.org/en-US/docs/Web/API/Request#Properties)
+* The `Response` interface of the Fetch API represents the response to a request
+  * it contains properties such as `headers`, `ok` (status code in range 200-299), `redirected`, [etc.](https://developer.mozilla.org/en-US/docs/Web/API/Response#Properties)  
+* While you can create `Request` and `Response` objects, it is more likely to get them as the result of another API operation, e.g. as a `fetch()` result
+* Both implements the `Body` mixin
+  * it provides methods such as `text()`, `json()`, `blob()`, [etc.](https://developer.mozilla.org/en-US/docs/Web/API/Body#Methods)
+
+```javascript
+
+const  myRequest = new Request('cats.json');
+
+fetch(myRequest).then((response) => { 
+  return response.json(); 
+}).then((json) => {
+  for(let i = 0; i < json.cats.length; i++) {
+      /* ... */
+  }
+});
+
 ```
 
 ---
