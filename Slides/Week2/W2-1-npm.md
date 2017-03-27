@@ -17,6 +17,15 @@
   * start npm project
   * install _eslint_ globally
     * after installing use _eslint_ in your project `eslint --init`
+    * edit .eslintrc.js: 
+    ```javascript 
+    module.exports = {
+        "extends": "google",
+        "parserOptions": {
+            "ecmaVersion": 6
+        }
+    };
+    ```
   * install moment.js locally to dependencies.
   * create a new JS file: _index.js_
   * log current date and time to console in human readable form (use moment.js)
