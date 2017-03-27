@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Promise and fetch</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle
+
+## NodeJS
+##### NoSQL MongoDB database and mongoose
+#### TX00CR77-3001 / Spring 2017
+#### Patrick Ausderau
+
+---
+
+# Contents
+
+1. NoSQL
+1. MongoDB
+1. mongoose
+
+---
+
+# NoSQL
+
+* NoSQL = "non SQL", "non relational" or "not only SQL"
+* Contains about anything that is not only relational databases
+  * Document databases like MongoDB
+  * Key-value storages like Redis
+  * Graph databases like OrientDB and Neo4j
+  * Object databases like ObjectDB
+  * Tabular databases like Hbase and BigTable
+
+---
+
+# MongoDB
+
+* [Free & open source](https://github.com/mongodb/mongo) document-oriented database
+  * First released in February 2009
+  * Currently v3.x
+* [Install](https://docs.mongodb.com/manual/administration/install-community/)
+* [Shell access](https://docs.mongodb.com/v3.0/tutorial/getting-started-with-the-mongo-shell/) (eventually, some UI like [Robomongo](https://robomongo.org/))
+* [Enable authentication](https://docs.mongodb.com/manual/tutorial/enable-authentication/)
+
+---
+
+# Document
+
+* JSON-like structure for collection of key-value pairs
+* Serialized and stored actually as BSON (Binary JSON)
+* Can have different fields from each other within the collection
+* Collection-wide unique ObjectId (12-byte, stored usually in _id) can be manually set for document. If not set, one is generated
+
+---
+
+# Sources
+
+* [NoSQL (wikipedia)](https://en.wikipedia.org/wiki/NoSQL)
+* [MongoDB](https://www.mongodb.com/)
+* [mongoose](http://mongoosejs.com/index.html)
+
+    </textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      const slideshow = remark.create();
+    </script>
+  </body>
+</html>
