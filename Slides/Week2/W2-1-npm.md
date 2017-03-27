@@ -20,7 +20,7 @@
   * install moment.js locally to dependencies.
   * create a new JS file: _index.js_
   * log current date and time to console in human readable form (use moment.js)
-  * import modules to index.js: `import 'my-module';`
+  * import modules to index.js: `const my-module = require('my-module');`
   * how to run: `node index.js`
 
 ### Automatig tasks
