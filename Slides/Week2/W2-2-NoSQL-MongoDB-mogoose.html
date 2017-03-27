@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Promise and fetch</title>
+    <title>NoSQL, MongoDB and mongoose</title>
     <meta charset="utf-8">
     <style>
       @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
@@ -58,12 +58,44 @@ class: center, middle
 
 ---
 
-# Document
+# Main features
 
-* JSON-like structure for collection of key-value pairs
-* Serialized and stored actually as BSON (Binary JSON)
-* Can have different fields from each other within the collection
-* Collection-wide unique ObjectId (12-byte, stored usually in _id) can be manually set for document. If not set, one is generated
+* Ad hoc queries
+* Indexing
+* High availability (replication)
+* Supports sharding (scaling horizontally)
+* File storage
+* JavaScript execution
+* Aggregation with map-reduce
+
+---
+
+# Basic structure
+
+* Server has multiple databases
+* Database has multiple collections
+  * Like tables in relational database
+  * Usually contains many related documents
+  * Do not enforce schema on documents
+  * Starting from 3.2 validations available for documents (checked on inserts and updates)
+* Collection has multiple documents (rows)
+  * JSON-like structure for collection of key-value pairs
+  * Serialized and stored as BSON (Binary JSON)
+* Document has multiple fields (columns)
+  * Can have different fields from each other within the collection
+  * Collection-wide unique identifier (12-byte, stored usually in _id field) can be manually set for document. If not set, one is generated
+
+---
+
+# Modeling data 
+
+* Modeling the data is different from relational databases
+  * Storage is cheap compared to computing time 
+  * Duplicating data is acceptable
+* Model data by user requirements
+* Joins on write, not on read
+* Optimize for most usual use case
+* Example: Blog post documents stores tags (strings) and comments (objects with text, author etc.) within the blog document itself (with author, text, date, etc.)
 
 ---
 
