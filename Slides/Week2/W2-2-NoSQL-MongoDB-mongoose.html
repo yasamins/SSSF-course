@@ -224,6 +224,13 @@ Blog.find({ hidden: false }).where('date').gt(oneYearAgo).exec().then(data => {
 
 ---
 
+# Lab 4
+
+* Create a [static](https://github.com/gofore/node-training/tree/master/express#serving-static-files) or with [template](https://github.com/gofore/node-training/tree/master/express#template-engines) a html form. On `POST /cats` create a new cat with the data that comes as [body](https://github.com/gofore/node-training/tree/master/express#request-body) argument.
+* Respond to `GET /cats` with JSON containing all the male cats that have weight over 10kg and are older than 10 years.
+
+---
+
 # Instance methods
 
 * Models have some built-in instance methods
@@ -275,13 +282,6 @@ Blog.find().byTitle('My title').exec((err, posts) => {
 ```    
 
 ---
----
-
-# Lab 4
-
-* Create a [static](https://github.com/gofore/node-training/tree/master/express#serving-static-files) or with [template](https://github.com/gofore/node-training/tree/master/express#template-engines) a html form. On `POST /cats` create a new cat with the data that comes as [body](https://github.com/gofore/node-training/tree/master/express#request-body) argument.
-* Respond to `GET /cats` with JSON containing all the male cats that have weight over 10kg and are older than 10 years.
-
 --- 
  
 # Sources
