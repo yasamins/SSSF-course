@@ -221,7 +221,60 @@ Blog.find({ hidden: false }).where('date').gt(oneYearAgo).exec().then(data => {
   console.log(data);
 });
 ```
- 
+
+---
+
+# Instance methods
+
+* Models have some built-in instance methods
+* Models can also have custom [instance methods](http://mongoosejs.com/docs/guide.html#methods):
+
+```javascript
+blogSchema.methods.findFromSameDate = (cb) => {
+  return this.model('Blog').find({ date: this.date }, cb);
+};
+var post1 = new Blog({ date: Date.now(), ... });
+
+post1.findFromSameDate((err, posts) => {
+  console.log(posts); // woof
+});
+```
+
+* Built-in instance methods should not be overwritten
+
+---
+
+# Static methods
+
+* [Static methods](http://mongoosejs.com/docs/guide.html#statics) can be used for example to perform more sophisticated lookups:
+
+```javascript
+blogSchema.statics.findByTitle = (title, cb) => {
+  return this.find({ title: new RegExp(title, 'i') }, cb);
+};
+
+Blog.findByTitle('My title', (err, posts) => {
+  console.log(posts);
+});
+```
+
+---
+
+# Query helpers
+
+* [Query helpers](http://mongoosejs.com/docs/guide.html#query-helpers) allow chained query building:
+
+```javascript
+blogSchema.query.byTitle = (title) => {
+  return this.find({ title: new RegExp(title, 'i') });
+};
+
+Blog.find().byTitle('My title').exec((err, posts) => {
+  console.log(posts);
+});
+```    
+
+---
 ---
 
 # Lab 4
