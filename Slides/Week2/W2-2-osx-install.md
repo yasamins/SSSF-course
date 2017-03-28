@@ -38,7 +38,8 @@
   export PATH=${HOME}/mongodb/bin:$PATH
   ```
   
-  * Run the Mongo daemon, in one terminal window run `mongod`. This will start the Mongo server.
-  * Run the Mongo shell, with the Mongo daemon running in one terminal, type `mongo` in another terminal window. This will run the Mongo shell which is an application to access data in MongoDB.
-  * To exit the Mongo shell run `quit()`
-  * To stop the Mongo daemon hit `ctrl-c`
+  * run `source ~.bashrc` or restart terminal to update settings
+  * run the Mongo daemon, in one terminal window run `mongod`. This will start the Mongo server.
+  * run the Mongo shell, with the Mongo daemon running in one terminal, type `mongo` in another terminal window. This will run the Mongo shell which is an application to access data in MongoDB.
+  * to exit the Mongo shell run `quit()`
+  * yo stop the Mongo daemon hit `ctrl-c`
