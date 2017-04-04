@@ -31,7 +31,7 @@
   * [Attributes](https://pugjs.org/language/attributes.html)
   * [Includes](https://pugjs.org/language/includes.html)
   * Excercise
-    * Modify the template of the previous excercise so that the result is valid HTML
+    * Modify the template of the previous excercise so that the result is [valid HTML](https://validator.w3.org/)
   * [Template inheritance](https://pugjs.org/language/inheritance.html)
   * [Interpolation](Interpolation)
   * [Iteration](https://pugjs.org/language/iteration.html)
