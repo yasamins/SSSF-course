@@ -112,7 +112,7 @@ app.use((req, res, next) => {
 
 * De facto standard authentication solution for Express.js applications
 * Flexible & does not mount routes
-* Supports OAuth (Facebook, Twitter, etc.) & OpenID ()
+* Supports OAuth (Facebook, Twitter, etc.) & OpenID 
 * Has over 300 login strategies available
 
 #### Username and password authentication
