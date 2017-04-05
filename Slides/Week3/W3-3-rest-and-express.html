@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>REST, HTTP APIs</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+## REST, HTTP requests
+#### Server-side scripting frameworks 
+#### TX00CR77-3001 / Spring 2017
+#### Olli Alm
+
+---
+
+# Contents
+
+
+Part 1
+
+* Web services
+* REST
+
+Part 2
+
+* HTTP processing in Node.js
+
+---
+
+class: center, middle
+
+## Part 1: Web services & REST
+
+
+
+---
+
+# Web services
+
+W3C: *"a software system designed to support interoperable machine-to-machine interaction over a network”*
+
+API defined in "machine-processable" form
+
+---
+
+# Web services
+
+**Parts**
+
+* Address to reach the service (URL)
+* Functions provided by the API
+* Communication: data to be send (e.g. via HTTP)
+
+---
+
+# Web services (history)
+
+History: RPC (Remote Procedure Call)
+
+* Executing an operation on remote machine (as it would executed similar to local procedure)
+
+2000s:
+* WSDL (Web Service Description Language) (interface, XML)
+* SOAP (Simple Object Access Protocol) (messaging, XML)
+* UDDI (Universal Description Discovery and Integration)
+  * Machine readable service listing, a catalogue of services
+
+---
+
+# REST
+
+R. Fielding: [Architectural Styles and the Design of Network-based Software Architectures (2000)](https://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf)
+
+Chapter 5: REST (pp. 77-106)
+
+**Highlights**
+1. **Client – server architecture**:
+  * Separating user interface (client) fron data storage (server)
+  * Client and server evolve independently
+2. Stateless communication: 
+  * Request has all the information (1)
+  * Same request, same answer, no implicit states on the server side
+  * All the session information on the client
+3. Caching (efficency)
+4. Uniform interface 
+  * Implementation hidden
+  * No knowledge of programming language
+5. Layered system
+6. Code-on-demand
+---
+# Rest, Restful interfaces
+
+* **De facto model**, not a standard, used everywhere
+* Communication with HTTP
+* Stateless
+* No machine-readable (but human-readable)
+* Documentation vary
+* Returns data (JSON, XML), images, videos or other resources (not just XML messages)
+
+---
+
+# Restful resources
+
+**Resource**: the intended conceptual target of a hypertext reference (Fielding, 2000)
+
+**Facebook (with OAuth)**
+
+* Base URL: https://graph.facebook.com
+* Resources: 
+  * https://graph.facebook.com/olli.alm
+  * https://graph.facebook.com/me/friends
+  * https://graph.facebook.com/me/music
+  
+http://www.omdbapi.com/?t=dog+day+afternoon&y=&plot=short&r=json
+
+---
+
+# HTTP Methods in REST
+
+Communication using **HTTP protocol** from [Tutorials point](https://www.tutorialspoint.com/restful/restful_methods.htm)
+
+**HTTP GET / read data**
+
+* Get list of users: http://localhost/rest/UserService/users 
+* Get user of id 1: http://localhost/rest/UserService/users/1
+
+**HTTP POST / update data (or create into collection)**
+
+* Update user with id 2: http://localhost/rest/UserService/users/2
+* (Create next user into collection: http://localhost/rest/UserService/users)
+
+**HTTP PUT / insert new entry**
+
+* Insert user with id 4: http://localhost/rest/UserService/users/4
+
+**HTTP DELETE / delete entry**
+
+* Delete user with id 1: http://localhost/rest/UserService/users/1
+
+See also **[HTTP PATCH](https://tools.ietf.org/html/rfc5789)**, update partially
+
+---
+
+# Restful parameters
+
+**In HTTP GET, two styles for parameters**
+
+* Path syntax: http://localhost/rest/user/1
+* Parameter syntax: http://localhost/rest/?user=1
+* Path is *ordered*, parameter order *can vary*:
+  * **OK** http://localhost/rest/?start=2008&user=1&sorted=asc
+  * **FAIL** http://localhost/rest/1/user
+  
+
+Note 1: HTTP POST is also used for getting data (when there is lot of data to be send in the query)
+
+Note 2: For updates (POST, PUT, PATCH, DELETE) you typically **authenticate first**
+
+Note: For restful experiments, use [Postman](https://www.getpostman.com/)
+
+---
+
+class: center, middle
+
+## Part 2: Rest in Node.js and Express
+
+---
+
+# Allowed URL syntax
+
+* URL: Uniform Resource Locator
+
+* *"URLs in general are **case-sensitive** (with the exception of machine names). There may be URLs, or parts of URLs, where case doesn't matter, but identifying these may not be easy. Users should always consider that URLs are case-sensitive."* [[W3C: HTML and URLs](https://www.w3.org/TR/WD-html40-970708/htmlweb.html)]
+
+* Allowed characters:
+```
+    ABCDEFGHIJKLMNOPQRSTUVWXYZ
+    abcdefghijklmnopqrstuvwxyz
+    0123456789-._~:/?#[]@!$&'()*+,;=`.
+```
+* *"Any other character needs to be encoded with the percent-encoding."* [[Gumbo / Stackoverflow](https://stackoverflow.com/questions/1547899/which-characters-make-a-url-invalid)]
+
+---
+
+# Request path and show it, HTTP GET
+
+```javascript
+
+const express = require('express');
+const app = express();
+
+app.get('/helloGet', (req, res) => {
+   res.send('received request to URL '+req.path);
+});
+
+app.listen(3000);
+```
+
+(note: case insensitive by default, /helloget will work also)
+
+(use app.set('case sensitive routing', true); for case insensitive routing)
+
+---
+
+# Request path and show it, HTTP POST
+
+```javascript
+
+const express = require('express');
+const app = express();
+
+app.post('/helloPost', (req, res) => {
+   res.send('received request to URL '+req.path);
+});
+
+app.listen(3000);
+```
+
+* Note: test the request with [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop)
+
+---
+
+# Request path and show it, HTTP, all methods
+
+```javascript
+
+const express = require('express');
+const app = express();
+
+app.all('/hello', (req, res) => {
+   res.send('got '+req.method+' request to '+req.path);
+});
+
+app.listen(3000);
+```
+
+* Note: test the request with [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop)
+
+---
+# Request wildcards
+
+```javascript
+
+app.get('/hello(World)?' // match hello and helloWorld (0..1 times World)
+app.get('/hel(lo)+'      // match hellolololololo.... (1 or more times lo)
+app.get(/dog/            // match WHATEVERdogWHATEVER (contains dog)
+app.get(/.*STUPID$/      // match somethingSTUPID (URL ending ending to STUPID)
+
+```
+For further examples, see [Express routing](https://expressjs.com/en/guide/routing.html)
+
+---
+
+# Route parameters
+
+Parameters are **required**: param1 and param2 have to be given
+
+```javascript
+
+const express = require('express');
+const app = express();
+
+app.get('/start2/:param1/:param2', (req, res) => {
+   res.send('got '+req.method+' request to '+req.path+
+            ' with parameters: '+req.params);
+});
+
+app.listen(3000);
+```
+
+* *req.params* is a JS-object with two keys: param1 and param2
+
+---
+
+# Query parameters
+
+Parameters are optional
+
+```javascript
+
+const express = require('express');
+const app = express();
+
+app.get('/query/', (req, res) => {
+   res.send('got '+req.method+' request to '+req.path+
+            ' with parameters: '+req.query);
+});
+
+app.listen(3000);
+```
+
+* use *req.query* for getting the parameters
+
+---
+
+# Investigating get requests
+
+```javascript
+
+const express = require('express');
+const app = express();
+
+app.get('/test*', (req, res) => {
+   res.send('got '+req.method+' request to '+req.path+
+            ' with route parameters: '+req.params+
+            ' and with query parameters: '+req.query);
+});
+
+app.listen(3000);
+```
+
+---
+
+# Investigating post requests JSON
+
+```javascript
+const app = require('express')();
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ // to support URL-encoded bodies
+    extended: true,
+}));
+
+app.post('/profile', function (req, res) {
+  res.send('got '+req.method+' request to '+req.path+
+            ' with body: '+JSON.stringify(req.body));
+});
+```
+---
+
+# CORS, middleware
+
+```javascript
+app.use(function(req, res, next) {
+    console.log('Time:', moment(Date.now()));
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers',
+        'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+});
+```
+
+* For allowing access from different domain in browser
+* See also [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)
+
+---
+
+# Further reading
+
+* Express: https://expressjs.com/en/guide/routing.html
+
+
+
+
+    </textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
