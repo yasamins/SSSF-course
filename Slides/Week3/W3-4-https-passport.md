@@ -20,6 +20,7 @@ $ openssl x509 -req -in certrequest.csr -signkey ssl-key.pem -out ssl-cert.pem
 * Put the keys and certificate in the app folder
 
 ```javascript
+const express = require('express');
 const https = require('https');
 const fs = require('fs');
 
@@ -31,7 +32,6 @@ const options = {
       cert: sslcert
 };
 
-const express = require('express');
 const app = express();
 
 https.createServer(options, app).listen(3000);
@@ -121,7 +121,7 @@ app.use((req, res, next) => {
 ```shell
 $ npm install --save passport
 ```
-[<65;62;27M
+
 * Register the strategy:
 ```javascript
 const passport = require('passport');
