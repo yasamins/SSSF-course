@@ -124,6 +124,10 @@ $ npm install --save passport
 
 * Register the strategy:
 ```javascript
+const bodyParser = require('body-parser');
+require('dotenv').config();
+app.use(bodyParser.urlencoded({extended: true}));
+
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 passport.use(new LocalStrategy(
@@ -141,10 +145,12 @@ app.use(passport.initialize());
 * Login route:
 ```javascript
 app.post('/login', 
-  passport.authenticate('local', { failureRedirect: '/login' }),
-  (req, res) => {
-    res.redirect('/');
-  });
+  passport.authenticate('local', { 
+    successRedirect: '/', 
+    failureRedirect: '/test', 
+    session: false })
+);
+
 ```
 
 
