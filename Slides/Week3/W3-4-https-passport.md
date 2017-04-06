@@ -153,6 +153,7 @@ app.post('/login',
 
 ```
 
+(If you test with [postman](https://www.getpostman.com/), make sure you send the parm as `x-www-form-urlencoded`.)
 
 #### Token-based authentication
 
