@@ -185,3 +185,8 @@ passport.use(new LocalAPIKeyStrategy(
 * Role-based, hierarchical access control
 * Supports Redis, MongoDB and in-memory backends with also 3rd-party backends for firebase, knex, etc.
 
+---
+
+#### Example
+* with [localhost https and passport](https://github.com/patrick-ausderau/https-and-passport)
+
