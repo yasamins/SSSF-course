@@ -40,3 +40,8 @@ mongoose.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@${proc
 1. in jelastic, [deploy your node project via git](https://docs.jelastic.com/nodejs-git-svn) using your public/private key and consider periodic autoredeploy
 1. Once cloned, create the `.env` file, this time matching your jelastic MongoDB settings
 
+---
+
+### Example
+
+* [express+mongo+.env](https://github.com/patrick-ausderau/testdb) (was deployed successfully)
