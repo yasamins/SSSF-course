@@ -15,7 +15,7 @@ You should already have created your jelastic account and got it activated.
 
 * Create a NodeJS (6.5) with MongoDB (3.4) servers and reserve 2 cloudlets
   * Once created, you should receive an email with DB credentials
-    * Create you [cat database](../Week2/W2-2-NoSQL-MongoDB-mongoose.html) 
+    * Create your [cat database](../Week2/W2-2-NoSQL-MongoDB-mongoose.html) 
     * Create a [user with read/write permissions](https://docs.mongodb.com/manual/tutorial/enable-authentication/#create-additional-users-as-needed-for-your-deployment) to your cat database
 
 ## Locally
@@ -26,7 +26,7 @@ You should already have created your jelastic account and got it activated.
   * your main should be `server.js` (jelastic default)
 1. do your normal `npm install --save` all required libraries
 1. also install [dotenv](https://www.npmjs.com/package/dotenv) 
-1. create a `.env` file at the root of your repo 
+1. create a `.env` file at the root of your repo (this is [why](https://12factor.net/config))
   * add `DB_HOST`, `DB_PORT`, `DB_USER` and `DB_PASSWORD` which match your localhost db settings
 1. edit your `server.js` and connect to the database using your env const 
 ```javascript
