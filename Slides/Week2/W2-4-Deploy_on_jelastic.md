@@ -28,7 +28,8 @@ You should already have created your jelastic account and got it activated.
 1. also install [dotenv](https://www.npmjs.com/package/dotenv) 
 1. create a `.env` file at the root of your repo 
   * add `DB_HOST`, `DB_PORT`, `DB_USER` and `DB_PASSWORD` which match your localhost db settings
-1. edit your `server.js` and connect to the database using your env const ```javascript
+1. edit your `server.js` and connect to the database using your env const 
+```javascript
 mongoose.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}:${process.env.DB_PORT}/cat`).then(() => {/* ... */}
 ```
 1. Test locally
