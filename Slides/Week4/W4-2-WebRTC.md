@@ -14,7 +14,6 @@
   
 #### Excercise: Create a simple videochat on localhost
 (note: Since we dont have TURN server(s) video chat does not usually work unless chatters are in the same network. [More info](https://www.html5rocks.com/en/tutorials/webrtc/infrastructure/#after-signaling-using-ice-to-cope-with-nats-and-firewalls))
-##### TODO  
   1. Write a simple express.js server to serve 'public' folder over [https](https://github.com/ilkkamtk/SSSF-course/blob/master/Slides/Week3/W3-4-https-passport.md)
      * create following folder structure
      ```
