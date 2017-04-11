@@ -9,7 +9,7 @@ App features:
   * Authentication
     * https redirection 
     * e.g. multiple users who need to login
-      * at least one user (e.g. local strategy env)
+      * at least one user (e.g. local strategy .env)
       * files belong to a single user
   * NEW: Video chat between two users
   
