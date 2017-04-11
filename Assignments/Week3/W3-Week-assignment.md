@@ -10,6 +10,6 @@ App features:
     * https redirection
     * optional: 
       * e.g. multiple users who need to login
-        * at least one user (e.g. local strategy env)
+        * at least one user (e.g. local strategy .env)
       * files belong to a single user
   
