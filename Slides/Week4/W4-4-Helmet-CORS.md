@@ -2,7 +2,8 @@
 
 ## Helmet
 
-* [Helmet](https://www.npmjs.com/package/helmet) secures Express.js application by modifying multiple headers
+* [Helmet](https://www.npmjs.com/package/helmet) secures Express.js application by modifying multiple headers. 
+* "It's not a silver bullet, but it can help!"
 
 * Installation: 
 
@@ -93,7 +94,7 @@ Check your project for known vulnerabilities
 
 # Use TLS
 
-*- TLS is the new progression of SSL
+* TLS is the new progression of SSL
 * Express.js can handle HTTPS [relatively simply](../Week3/W3-4-https-passport.md)
 * Generally better to implement TLS in reverse-proxy such as Nginx (as implemented in jelastic)
 
